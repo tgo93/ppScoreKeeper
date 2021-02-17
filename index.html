@@ -25,10 +25,10 @@
                             </p>
                         </header>
                         <div class="card-content">
-                            <div class="content">
+                            <label for="pointScoreDisplay" class="label">Points: </label>
+                            <div class="content" id="pointScoreDisplay" name="pointScoreDisplay">
                                 <h1 class="title is-1"><span id="p1Display">0</span> to <span id="p2Display">0</span>
                                 </h1>
-                                <p class="subtitle">Use the buttons below to keep score</p>
                             </div>
 
                             <label class="label is-large is-inline" for="playingTo">Playing To:</label>
@@ -38,13 +38,32 @@
                                 <option value='5'>5</option>
                                 <option value='6'>6</option>
                             </select>
+
+                            <label for="playingToSet" class="label is-large is-inline">Sets:</label>
+                            <select name="playingToSet" id="playingToSet" class="select is-rounded">
+                                <option value="1">1</option>
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="7">7</option>
+                            </select>
+
+                            <div class="content" id="setScoreDisplay" name="setScoreDisplay">
+                                <label for="setScoreDisplay" class="label">Sets: </label>
+                                <h2 class="title is-1"><span id="p1SetDisplay">0</span> to <span
+                                        id="p2SetDisplay">0</span></h2>
+                            </div>
+                            <p id="message" class="subtitle">Use the buttons below to keep score</p>
+
                         </div>
                         <footer class="card-footer">
                             <button id="p1Button" class="card-footer-item button is-large is-primary">+1 Player
                                 One</button>
                             <button id="p2Button" class="card-footer-item button is-large is-info">+1 Player
                                 Two</button>
-                            <button id="resetButton" class="card-footer-item button is-large is-danger">Reset</button>
+                            <button id="nextSetButton" class="card-footer-item button is-large is-link">Next
+                                Set</button>
+                            <button id="resetButton" class="card-footer-item button is-large is-danger">Reset
+                                All</button>
                         </footer>
                     </div>
                 </div>
