@@ -20,7 +20,7 @@ const resetButton = document.querySelector('#resetButton');
 const playingToSelect = document.querySelector('#playingTo');
 
 // Default end-game limit
-let playingTo = 3;
+let targetScore = 3;
 
 // Game status handling
 let isGameOver = false;
@@ -46,12 +46,15 @@ function reset() {
 }
 
 // Calculates scores, handles win conditions
+// Player must meet target score, and have two more points than opponent
 function updateScores(player, opponent) {
     if(!isGameOver) {
-        player.score ++;
-        if (player.score === playingTo) {
-            isGameOver = true;
-            endGame(player, opponent);
+        player.score++;
+        if (player.score >= targetScore) {
+            if (player.score > opponent.score + 1) {
+                isGameOver = true;
+                endGame(player, opponent);
+            }
         }
         player.display.textContent = player.score;
     }
@@ -73,6 +76,6 @@ resetButton.addEventListener('click', reset);
 
 // Allows players to select a score limit
 playingToSelect.addEventListener('change', function(e) {
-    playingTo = parseInt(this.value);
+    targetScore = parseInt(this.value);
     reset();
 })
